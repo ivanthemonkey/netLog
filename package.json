@@ -1,0 +1,26 @@
+{
+  "name": "netlog",
+  "version": "1.0.0",
+  "description": "check who is home and turn things off ",
+  "main": "netLog.js",
+  "dependencies": {
+    "mongoose": "^4.13.6",
+    "net-ping": "^1.2.1",
+    "ping": "^0.2.2",
+    "raw-socket": "^1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanthemonkey/netLog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanthemonkey/netLog/issues"
+  },
+  "homepage": "https://github.com/ivanthemonkey/netLog#readme"
+}

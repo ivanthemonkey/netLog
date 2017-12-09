@@ -23,10 +23,10 @@ module.exports = function(mongoose,db){
     };
 
     o.getLast = function(_ip,callback){
-       mod.find({}).sort({"stateDate":-1}).limit(1).execFind(callback);
+       mod.find({}).sort({"stateDate":-1}).limit(1).exec(callback);
     };
     o.getLast40 = function(callback){
-       mod.find({}).sort({"stateDate":-1}).limit(40).execFind(callback);
+       mod.find({}).sort({"stateDate":-1}).limit(40).exec(callback);
     };
     return o;
     

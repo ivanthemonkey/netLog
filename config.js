@@ -6,10 +6,10 @@ config.db = config.mongoose.connection;
 config.db.on('error', console.log);
 config.db.once('open',
     function callback () {
-    //console.log('db open');
+    console.log('db open');
 });
 config.servers = new Array();
-    var david = {ip:'192.168.100.122',name:'david'};
+    var david = {ip:'192.168.100.148',name:'david'};
     var j = {ip:'192.168.100.102',name:'Jacquelines Phone'};
     config.servers.push(david);
     config.servers.push(j);
