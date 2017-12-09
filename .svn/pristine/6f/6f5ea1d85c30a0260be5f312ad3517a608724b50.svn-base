@@ -1,0 +1,38 @@
+var piface     = {};
+piface.isOn    = false;
+piface.spawn   = require('child_process').spawn;
+
+
+piface.on = function(){
+    var worker  = piface.spawn('python', ['python/on.py']);
+
+    function killWorker(){
+        process.kill(worker);
+    };
+
+    process.on("uncaughtException", killWorker);
+    process.on("SIGINT", killWorker);
+    process.on("SIGTERM", killWorker);
+
+    piface.isOn = true ;
+   // console.log('led8:' + piface.isOn );
+};
+
+piface.off = function(){
+    var worker = piface.spawn('python', ['python/off.py']);
+    
+    function killWorker(){
+        process.kill(worker);
+    };
+
+    process.on("uncaughtException", killWorker);
+    process.on("SIGINT", killWorker);
+    process.on("SIGTERM", killWorker);
+    piface.isOn = false ;
+    //console.log('led8:' + piface.isOn);
+};
+
+
+
+module.exports =  piface;
+

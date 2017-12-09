@@ -1,0 +1,88 @@
+<html>
+<head>
+    <script src="..\includes\jquery-1.9.1.js"></script>
+    <script src="..\includes\fac.js"></script>
+    <script src="..\includes\fac.routes.js"></script>
+    <script src="..\includes\fac.ctrl.base.js"></script>
+    <script src="..\includes\fac.ctrl.powerHistory.js"></script>
+    <script src="..\includes\fac.ctrl.serverInfo.js"></script>
+    <script src="..\includes\fac.ctrl.powerHistoryDay.js"></script>
+    <script src="..\includes\app.js"></script>
+    <script src="..\includes\app.util.js"></script>
+
+<style> 
+body{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   
+   
+    }
+.offstate{
+  font-weight:bold;
+}
+.dayHourSegment{
+    clear:both;
+}
+.dayHours{
+    float:left;
+    width:20px;
+    padding-right:3px;
+    padding-left:3px;
+    }
+.dayHoursOn{
+    float:left;
+    background-color:red;
+    width:30px;
+    padding-right:3px;
+
+    }
+.dayHoursOff{
+    float:left;
+    width:30px;
+    padding-right:3px;
+
+    }
+.dayHoursFuture{
+    float:left;
+    width:30px;
+    padding-right:3px;
+    background:url(
+    data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAX/GZH4/4FsRpgAmAOSBBFwDkgAAIKuBATRTAAZAAAAAElFTkSuQmCC
+   ) repeat;
+    
+}
+.daySegment{
+    float:left;
+    padding-right:3px;
+}
+    
+</style>
+
+</head>
+<body>
+
+<script> 
+   app.routes.init(); 
+
+    function showHistory ()
+    {
+        $('#d_powerHistory').toggle();
+        $('#d_ping').toggle();
+    };
+
+</script>
+
+
+
+<div id='d_stats'>  </div>
+<div id='d_servers' style="color:gray; vertical-align:text-top;"></div>
+
+<input type='button' onclick='showHistory()' value ='View Data'   > 
+
+<div id='d_powerHistory' style="color:red; vertical-align:text-top;  display:none;"></div>
+
+<div id='d_ping' style="color:grey; vertical-align:text-top; "></div>
+
+
+
+</body>
+</html>

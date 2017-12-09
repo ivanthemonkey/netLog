@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+import time
+import piface.pfio
+
+piface.pfio.init()
+
+led8 = piface.pfio.LED(8)
+led8.turn_off()
+
+for i in range(1, 7):
+    led = piface.pfio.LED(i)
+    led.turn_on()
+    time.sleep(0.2)
+    led.turn_off()
+for i in range(7, 1, -1):
+    led = piface.pfio.LED(i)
+    led.turn_on()
+    time.sleep(0.2)
+    led.turn_off()
+for i in range(1, 7):
+    led = piface.pfio.LED(i)
+    led.turn_on()
+    time.sleep(0.2)
+    led.turn_off()
+for i in range(7, 1, -1):
+    led = piface.pfio.LED(i)
+    led.turn_on()
+    time.sleep(0.2)
+    led.turn_off()
+
+# vim:ts=2:sw=2:sts=2:et:ft=python

@@ -1,0 +1,140 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/opt/node/bin/node', '/opt/node/bin/npm', 'update' ]
+2 info using npm@1.3.8
+3 info using node@v0.11.7
+4 verbose cache add [ 'express', '3.1.0' ]
+5 verbose cache add name="express" spec="3.1.0" args=["express","3.1.0"]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '3.1.0',
+6 verbose parsed url   path: '3.1.0',
+6 verbose parsed url   href: '3.1.0' }
+7 verbose addNamed [ 'express', '3.1.0' ]
+8 verbose addNamed [ '3.1.0', '3.1.0' ]
+9 silly lockFile 0557bc2a-express-3-1-0 express@3.1.0
+10 verbose lock express@3.1.0 /root/.npm/0557bc2a-express-3-1-0.lock
+11 verbose url raw express/3.1.0
+12 verbose url resolving [ 'https://registry.npmjs.org/', './express/3.1.0' ]
+13 verbose url resolved https://registry.npmjs.org/express/3.1.0
+14 info trying registry request attempt 1 at 14:04:20
+15 http GET https://registry.npmjs.org/express/3.1.0
+16 http 200 https://registry.npmjs.org/express/3.1.0
+17 silly registry.get cb [ 200,
+17 silly registry.get   { vary: 'Accept',
+17 silly registry.get     server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+17 silly registry.get     etag: '"5ADG3TFSQZGAUL5JQBNYDMQ7N"',
+17 silly registry.get     date: 'Tue, 22 Oct 2013 06:04:21 GMT',
+17 silly registry.get     'content-type': 'application/json',
+17 silly registry.get     'content-length': '7541' } ]
+18 silly lockFile 4542da4e-js-org-express-express-3-1-0-tgz https://registry.npmjs.org/express/-/express-3.1.0.tgz
+19 verbose lock https://registry.npmjs.org/express/-/express-3.1.0.tgz /root/.npm/4542da4e-js-org-express-express-3-1-0-tgz.lock
+20 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-3.1.0.tgz',
+20 verbose addRemoteTarball   'f869b2d92320f5c3dd496c172e06f02b6ad43310' ]
+21 info retry fetch attempt 1 at 14:04:21
+22 verbose fetch to= /root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz
+23 http GET https://registry.npmjs.org/express/-/express-3.1.0.tgz
+24 http 200 https://registry.npmjs.org/express/-/express-3.1.0.tgz
+25 verbose tar unpack /root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz
+26 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+27 verbose lock tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package /root/.npm/2aaa25c6-61815-0-6977108258288354-package.lock
+28 silly lockFile 24525e1b-61815-0-6977108258288354-tmp-tgz tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz
+29 verbose lock tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz /root/.npm/24525e1b-61815-0-6977108258288354-tmp-tgz.lock
+30 silly gunzTarPerm modes [ '755', '644' ]
+31 silly gunzTarPerm extractEntry package.json
+32 silly gunzTarPerm extractEntry .npmignore
+33 silly gunzTarPerm extractEntry LICENSE
+34 silly gunzTarPerm extractEntry client.js
+35 silly gunzTarPerm extractEntry index.js
+36 silly gunzTarPerm extractEntry test.js
+37 silly gunzTarPerm extractEntry .travis.yml
+38 silly gunzTarPerm extractEntry History.md
+39 silly gunzTarPerm extractEntry Makefile
+40 silly gunzTarPerm extractEntry bin/express
+41 silly gunzTarPerm extractEntry Readme.md
+42 silly gunzTarPerm extractEntry lib/application.js
+43 silly gunzTarPerm extractEntry lib/express.js
+44 silly gunzTarPerm extractEntry lib/middleware.js
+45 silly gunzTarPerm extractEntry lib/request.js
+46 silly gunzTarPerm extractEntry lib/response.js
+47 silly gunzTarPerm extractEntry lib/utils.js
+48 silly gunzTarPerm extractEntry lib/view.js
+49 silly gunzTarPerm extractEntry lib/router/index.js
+50 silly gunzTarPerm extractEntry lib/router/route.js
+51 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+52 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+53 silly lockFile 24525e1b-61815-0-6977108258288354-tmp-tgz tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz
+54 silly lockFile 24525e1b-61815-0-6977108258288354-tmp-tgz tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/tmp.tgz
+55 verbose tar pack [ '/root/.npm/express/3.1.0/package.tgz',
+55 verbose tar pack   '/root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package' ]
+56 verbose tarball /root/.npm/express/3.1.0/package.tgz
+57 verbose folder /root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+58 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+59 verbose lock tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package /root/.npm/2aaa25c6-61815-0-6977108258288354-package.lock
+60 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+61 verbose lock tar:///root/.npm/express/3.1.0/package.tgz /root/.npm/52684fd2-ot-npm-express-3-1-0-package-tgz.lock
+62 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+63 silly lockFile 2aaa25c6-61815-0-6977108258288354-package tar:///root/tmp/npm-9672-wMe-EQlQ/1382421861815-0.6977108258288354/package
+64 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+65 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+66 silly lockFile 448bef88-root-npm-express-3-1-0-package /root/.npm/express/3.1.0/package
+67 verbose lock /root/.npm/express/3.1.0/package /root/.npm/448bef88-root-npm-express-3-1-0-package.lock
+68 silly lockFile 448bef88-root-npm-express-3-1-0-package /root/.npm/express/3.1.0/package
+69 silly lockFile 448bef88-root-npm-express-3-1-0-package /root/.npm/express/3.1.0/package
+70 verbose tar unpack /root/.npm/express/3.1.0/package.tgz
+71 silly lockFile 0f20cf5f-r-root-npm-express-3-1-0-package tar:///root/.npm/express/3.1.0/package
+72 verbose lock tar:///root/.npm/express/3.1.0/package /root/.npm/0f20cf5f-r-root-npm-express-3-1-0-package.lock
+73 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+74 verbose lock tar:///root/.npm/express/3.1.0/package.tgz /root/.npm/52684fd2-ot-npm-express-3-1-0-package-tgz.lock
+75 silly gunzTarPerm modes [ '755', '644' ]
+76 silly gunzTarPerm extractEntry package.json
+77 silly gunzTarPerm extractEntry .npmignore
+78 silly gunzTarPerm extractEntry LICENSE
+79 silly gunzTarPerm extractEntry index.js
+80 silly gunzTarPerm extractEntry client.js
+81 silly gunzTarPerm extractEntry test.js
+82 silly gunzTarPerm extractEntry .travis.yml
+83 silly gunzTarPerm extractEntry Readme.md
+84 silly gunzTarPerm extractEntry Makefile
+85 silly gunzTarPerm extractEntry lib/application.js
+86 silly gunzTarPerm extractEntry lib/express.js
+87 silly gunzTarPerm extractEntry lib/middleware.js
+88 silly gunzTarPerm extractEntry lib/request.js
+89 silly gunzTarPerm extractEntry lib/response.js
+90 silly gunzTarPerm extractEntry lib/utils.js
+91 silly gunzTarPerm extractEntry lib/view.js
+92 silly gunzTarPerm extractEntry lib/router/index.js
+93 silly gunzTarPerm extractEntry lib/router/route.js
+94 silly gunzTarPerm extractEntry History.md
+95 silly gunzTarPerm extractEntry bin/express
+96 silly lockFile 0f20cf5f-r-root-npm-express-3-1-0-package tar:///root/.npm/express/3.1.0/package
+97 silly lockFile 0f20cf5f-r-root-npm-express-3-1-0-package tar:///root/.npm/express/3.1.0/package
+98 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+99 silly lockFile 52684fd2-ot-npm-express-3-1-0-package-tgz tar:///root/.npm/express/3.1.0/package.tgz
+100 verbose chmod /root/.npm/express/3.1.0/package.tgz 644
+101 verbose chown /root/.npm/express/3.1.0/package.tgz [ 1000, 1000 ]
+102 silly lockFile 4542da4e-js-org-express-express-3-1-0-tgz https://registry.npmjs.org/express/-/express-3.1.0.tgz
+103 silly lockFile 4542da4e-js-org-express-express-3-1-0-tgz https://registry.npmjs.org/express/-/express-3.1.0.tgz
+104 silly lockFile 0557bc2a-express-3-1-0 express@3.1.0
+105 silly lockFile 0557bc2a-express-3-1-0 express@3.1.0
+106 error TypeError: Cannot read property 'from' of undefined
+106 error     at /opt/node/lib/node_modules/npm/lib/outdated.js:159:36
+106 error     at /opt/node/lib/node_modules/npm/lib/cache.js:591:30
+106 error     at /opt/node/lib/node_modules/npm/node_modules/lockfile/lockfile.js:55:41
+106 error     at Object.oncomplete (fs.js:96:15)
+107 error If you need help, you may report this log at:
+107 error     <http://github.com/isaacs/npm/issues>
+107 error or email it to:
+107 error     <npm-@googlegroups.com>
+108 error System Linux 3.6.11+
+109 error command "/opt/node/bin/node" "/opt/node/bin/npm" "update"
+110 error cwd /home/pi/work/netLog/webServer
+111 error node -v v0.11.7
+112 error npm -v 1.3.8
+113 verbose exit [ 1, true ]

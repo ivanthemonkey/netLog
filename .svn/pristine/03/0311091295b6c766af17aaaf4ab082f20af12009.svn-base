@@ -1,0 +1,32 @@
+
+var ping = require ("../");
+
+if (process.argv.length < 3) {
+	console.log ("usage: node ping <target>");
+	process.exit (-1);
+}
+
+var target = process.argv[2];
+
+var options = {
+	retries: 1,
+	timeout: 2000
+};
+
+var session = ping.createSession (options);
+
+session.on ("error", function (error) {
+	console.trace (error.toString ());
+});
+
+for (var i = 0; i < 70000; i++) {
+	session.pingHost (target, function (error, target) {
+		if (error)
+			if (error instanceof ping.RequestTimedOutError)
+				console.log (target + ": Not alive");
+			else
+				console.log (target + ": " + error.toString ());
+		else
+			console.log (target + ": Alive");
+	});
+}

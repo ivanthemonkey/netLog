@@ -1,0 +1,233 @@
+<html>
+<head>
+    <script src="..\includes\jquery-1.9.1.js"></script>
+    <script src="..\includes\prettyPrint.js"></script>
+    <script>
+
+    $.get('../mod/state', function(obj) {
+        var txt = new Array();
+        txt.push('Up for : ');
+
+        var d = new Date();
+        d.setTime(obj.startedAt);
+        txt.push(dateDiff(d, new Date()));
+
+        txt.push(' since ');
+        txt.push(getDateFormat(d));
+
+        txt.push('<br />');
+
+        txt.push('Power  ');
+        if (obj.isPowerOn){
+            txt.push( 'On');
+        }
+        else{
+            txt.push('Off');
+        }
+        
+        txt.push(' at ');
+        var d1 = new Date();
+        d1.setTime(obj.isPowerOnTimeStamp);
+        txt.push(getDateFormat(d1));
+
+        txt.push(' updated at ');
+        var d2 = new Date();
+        d2.setTime(obj.isPowerOnTimeUpdated);
+        txt.push(getDateFormat(d2));
+
+        txt.push('<br />'); 
+        txt.push('Minuets till power off : ' +obj.timeTilloff );
+
+        $('#d_stats').html(txt.join(''));
+    }); 
+
+     $.get('../mod/powerHistory', function(obj) {
+         $('#d_powerHistory').html(gethtml(obj));
+    }); 
+
+    $.get('../mod/servers', function(obj) {
+         $('#d_servers').append(gethtmlServers(obj));
+    }); 
+
+    $.get('../mod/ping', function(obj) {
+         $('#d_ping').append(gethtmlPing(obj));
+    }); 
+
+	setTimeout("location.reload(true);",10000);
+ 
+   function gethtml(obj){
+     var txt = new Array();
+             
+
+        for (var i =0 ; i< obj.length;i++ ){
+            var r = obj[i];
+            
+                gethtmlLine(txt,r);
+
+           
+        }
+        return txt.join('');
+   
+   };
+    
+    function gethtmlLine(txt,r){
+        txt.push('<span>');
+       // txt.push( r.stateDate + ' ' );
+
+        txt.push( getDateFormat(getDate(r.stateDate)) + ' ' );
+        txt.push('</span>');
+               
+        txt.push('<span>');
+        txt.push(r.state);
+        txt.push('</span>');
+         txt.push('<br />');
+       };
+   
+    function getDate(str){
+        return  new Date(str);
+    };
+    
+    function gethtmlServers(obj){
+     var txt = new Array();
+             
+
+        for (var i =0 ; i< obj.length;i++ ){
+            var r = obj[i];
+            
+                txt.push('<span>');
+                txt.push(r.ip + ' ' );
+                txt.push('</span>');
+               
+             
+
+                txt.push('<span>');
+                txt.push(r.status + ' ');
+                txt.push('</span>')
+
+                txt.push('<span>');
+                txt.push(r.name);
+                txt.push('</span>')
+            
+
+            txt.push('<br />');
+
+
+        }
+        return txt.join('');
+   
+   };
+
+   function gethtmlPing(obj){
+     var txt = new Array();
+             
+
+        for (var i = 0 ; i< obj.length;i++ ){
+            var r = obj[i];
+            
+                txt.push('<span>');
+                txt.push(r.ip + ' ' );
+                txt.push('</span>');
+               
+                txt.push('<span>');
+                txt.push( getDateFormat(getDate(r.pingTime)) + ' ' );
+                txt.push('</span>');
+
+                txt.push('<span>');
+                txt.push(r.name + ' ' );
+                txt.push('</span>');
+               
+                txt.push('<span>');
+                txt.push(r.pingStatus);
+                txt.push('</span>');
+
+           
+            
+
+            txt.push('<br />');
+
+
+        }
+        return txt.join('');
+   
+   };
+ 
+      function getDateFormat(d){
+    
+    var myDays=
+["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]        
+    
+    var time = d.getTime() ;//- Number of milliseconds since 1/1/1970 @ 12:00 AM
+    var seconds = d.getSeconds();  // Number of seconds (0-59)
+    var minutes = d.getMinutes(); // Number of minutes (0-59)
+    if (minutes < 10){
+        minutes = "0" + minutes
+    }
+    var hours  = d.getHours(); // - Number of hours (0-23)
+    var day = d.getDay(); // - Day of the week(0-6). 0 = Sunday, ... , 6 = Saturday
+    var dayName = myDays[day];
+    var daym = d.getDate(); // - Day of the month (0-31)
+    var month = d.getMonth(); // - Number of month (0-11)
+    var year = d.getFullYear(); // - The four digit year (19
+
+    return dayName + ' ' + hours +  ':' + minutes + ':' + seconds ;    
+          
+      };
+
+
+      function dateDiff(date1, date2){
+
+var diff= new Date() ; 
+
+diff.setTime(Math.abs(date1.getTime() - date2.getTime()));
+
+var timediff = new Date( diff.getTime());
+
+weeks = Math.floor(timediff / (1000 * 60 * 60 * 24 * 7));
+timediff -= weeks * (1000 * 60 * 60 * 24 * 7);
+
+days = Math.floor(timediff / (1000 * 60 * 60 * 24)); 
+timediff -= days * (1000 * 60 * 60 * 24);
+
+hours = Math.floor(timediff / (1000 * 60 * 60)); 
+timediff -= hours * (1000 * 60 * 60);
+
+mins = Math.floor(timediff / (1000 * 60)); 
+timediff -= mins * (1000 * 60);
+
+secs = Math.floor(timediff / 1000); 
+timediff -= secs * 1000;
+
+ return   " weeks, " + days + " days, " + hours + " hours, " + mins + " minutes, and " + secs + " seconds";
+
+      
+      
+          
+      }
+    </script>
+    
+</head>
+<body>
+
+<div id='d_stats'>  </div>
+<div id='d_servers' style="color:gray; vertical-align:text-top;"></div>
+
+
+
+<table>
+<tr>
+<td  style="vertical-align:text-top;" >
+    <div id='d_powerHistory' style="color:red; vertical-align:text-top;">  </div>
+
+</td>
+<td style="vertical-align:text-top;" >
+</td>
+<td style="vertical-align:text-top;" >
+
+  <div id='d_ping' style="color:green; vertical-align:text-top;">   </div>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

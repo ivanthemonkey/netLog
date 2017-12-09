@@ -1,0 +1,35 @@
+Web Up
+netLog - Started
+. : Ping
+x : Failed ping
+e : Error Ping
+
+.x On led8:function (){
+    var worker  = piface.spawn('/usr/bin/python', ['/home/pi/work/netLog/python/on.py']);
+
+    function killWorker(){
+        process.kill(worker);
+    };
+
+    process.on("uncaughtException", killWorker);
+    process.on("SIGINT", killWorker);
+    process.on("SIGTERM", killWorker);
+
+    piface.isOn = true ;
+    console.log('led8:' + piface.on);
+}
+.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.x.x.x.x.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Off xxxxxxxxxxxxxx.x On led8:function (){
+    var worker  = piface.spawn('/usr/bin/python', ['/home/pi/work/netLog/python/on.py']);
+
+    function killWorker(){
+        process.kill(worker);
+    };
+
+    process.on("uncaughtException", killWorker);
+    process.on("SIGINT", killWorker);
+    process.on("SIGTERM", killWorker);
+
+    piface.isOn = true ;
+    console.log('led8:' + piface.on);
+}
+.xxxxxxxxxxxxxxxxxxxxx
