@@ -9,13 +9,9 @@ config.db.once('open',
     console.log('db open');
 });
 config.servers = new Array();
-    var david = {ip:'192.168.100.148',name:'david'};
-    var j = {ip:'192.168.100.102',name:'Jacquelines Phone'};
-    config.servers.push(david);
-    config.servers.push(j);
-    config.servers.push({ip:'192.168.100.137',name:'dad'}); 
-    config.servers.push({ip:'192.168.100.107',name:'mum'});
-config.powerOffDelay = 32;
+    config.servers.push({ip:'10.74.75.49',name:'david'});
+    config.servers.push({ip:'10.74.75.131',name:'j'});
+config.powerOffDelay = 40;
 config.refreshRate = 15000;
 
 module.exports = config;

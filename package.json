@@ -6,6 +6,7 @@
   "dependencies": {
     "mongoose": "^4.13.6",
     "net-ping": "^1.2.1",
+    "node-pifacedigital": "^0.2.2",
     "ping": "^0.2.2",
     "raw-socket": "^1.5.1"
   },

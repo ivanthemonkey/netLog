@@ -1,7 +1,10 @@
 var util   = require('./util.js');
 var log    = new require('./log.js');
 var config = require('./config.js')
+var PIFD   = require('node-pifacedigital');
+var pi     = new PIFD.PIFaceDigital(0,true);
 require('./err.js');
+
 
 var netLog = function(){
 	var app  = {};
@@ -46,6 +49,25 @@ var netLog = function(){
 
 	app.start = function (){
 		app.timeout= setInterval(app.testServers,config.refreshRate);
+
+		log.wl('Set Button Call backs');
+		var callbackButton1 = function(pin,type){
+			if (type == 'lohi') {
+				app.turnOnPower(); 
+				app.state.timeTilloff = 720; //on for 12 hour
+			}
+		};
+		pi.watch(0,callbackButton1);
+
+		var callbackButton2 = function(pin,type){
+		// Type will be 'lohi' or 'hilo'.
+			if (type == 'lohi')
+			{
+				app.turnOffPower();
+			}
+		};
+		pi.watch(1,callbackButton2);
+	
 	};
 
 	function testForDbData(){  
@@ -149,10 +171,9 @@ var netLog = function(){
 	function testServer(cb, server){
 
 		var pingCallBack = function(isAlive){
-
 			var res = {date:Date.now(),result:'up'};
 
-			if (isAlive){
+			if (!isAlive){
 				log.w('x');
 				res.result = 'down';	
 			}
@@ -189,7 +210,8 @@ var netLog = function(){
 			app.state.isPowerOnTimeStamp = Date.now();
 			log.w(' On ');
 			savePowerChange();
-			piface.on();
+			pi.set(7,1);
+		//	piface.on();
 		}
 		app.state.isPowerOnTimeUpdated = Date.now();
 	};
@@ -200,7 +222,8 @@ var netLog = function(){
 			app.state.isPowerOnTimeStamp = Date.now();
 			log.w(' Off ');
 			savePowerChange();
-			piface.off();
+			pi.set(7,0);
+	//		piface.off();
 
 		}
 		app.state.isPowerOnTimeUpdated = Date.now();
