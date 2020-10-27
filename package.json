@@ -4,7 +4,7 @@
   "description": "check who is home and turn things off ",
   "main": "netLog.js",
   "dependencies": {
-    "mongoose": "^4.13.6",
+    "mongoose": "^5.7.5",
     "net-ping": "^1.2.1",
     "node-pifacedigital": "^0.2.2",
     "ping": "^0.2.2",
